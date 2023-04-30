@@ -1,5 +1,5 @@
 /* Estilos generales */
-body {
+/* body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #d9c687;
     color: #333;
@@ -7,15 +7,10 @@ body {
     padding: 0;
    image-rendering:repeat-y ;
     
-  }
+  } */
 
-  #login
-  {
-
-  }
-
-  .container {
-    margin-top:5%;
+  .login_container {
+    /* margin-top:5%; */
     width: 600px;
     height: 40%;
     padding: 30px;
@@ -32,7 +27,7 @@ body {
   /* transform: translate(-50%, -50%); */
   }
   
-  h1 {
+  /* h1 {
     text-align: center;
     font-size: 36px;
     margin: 0 0 30px;
@@ -43,7 +38,7 @@ body {
     margin-bottom: 10px;
     font-size: 18px;
   }
-  
+   */
   input[type="text"],
   input[type="email"],
   input[type="email"],
@@ -79,7 +74,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.5s ease;
   }
   
   input[type="submit"]:hover {

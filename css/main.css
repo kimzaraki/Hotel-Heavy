@@ -1,0 +1,81 @@
+.txt {
+  font-family: "Metal Mania", cursive;
+  align-items: center;
+}
+/* .item, div{font-size: 3vh;} */
+.png,
+.txt {
+  max-height: 4vh;
+}
+.item.list {
+  margin: auto;
+}
+
+.item.logo {
+  display: inline-flex;
+}
+.bar .bottom {
+  height: 2vh;
+  border-top: 4px solid rgb(196, 140, 21);
+  background-color: rgb(248, 228, 114);
+  
+}
+.bar .top {
+  height: 6vh;
+  background-color: #fff;
+  z-index: 1;
+}
+#content {
+  font-family: "Metal Mania", cursive;
+  margin: 2.54%;
+}
+.bar {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0 0 15px 15px;
+}
+.bar {
+  width: 100%;
+}
+body {
+  background-color: #ff2;
+}
+.item.logo {
+  float: left;
+}
+.items {
+  display: inline;
+  max-width: 100%;
+  height: auto;
+}
+img {
+  height: 4vh;
+}
+.top div {
+  display: flex;
+  flex-direction: row;
+}
+.top {
+  display: initial;
+  padding: 10px 0;
+}
+.top {
+  margin: 10px 10px 0 10px;
+}
+.items {
+  padding: 10px 0;
+}
+/* .item.list .txt, .items{display: flex; flex-direction:row;} */
+.item.user {
+  float: right;
+  margin-left: 3vh;
+  vertical-align: text-top;
+}
+.user .png {
+  border: 2px solid;
+  border-radius: 100%;
+}
+.item.list .txt {
+  margin: 0 1vh;
+}
