@@ -1,0 +1,107 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d9c687;
+    color: #333;
+    margin: 0;
+    padding: 0;
+   image-rendering:repeat-y ;
+    
+  }
+
+  #login
+  {
+
+  }
+
+  .container {
+    margin-top:5%;
+    width: 600px;
+    height: 40%;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    border-radius: 8px;
+
+      /* Agregar estas propiedades para centrar el contenedor */
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    margin: 0 0 30px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-bottom-color 0.2s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="password"]:focus,
+  input[type="date"]:focus,
+  select:focus {
+    outline: none;
+    border-bottom-color: #3498db;
+  }
+  
+  input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media only screen and (max-width: 767px) {
+    .container {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    input[type="submit"] {
+      font-size: 16px;
+    }
+  }
+  span.rock {
+    color: black;
+  }
+  
+  
