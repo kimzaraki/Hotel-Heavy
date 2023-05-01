@@ -7,7 +7,11 @@ en este proyecto utilizamos flask
 LINK: https://aws.amazon.com
 
 # Cuenta de Tiktok del programador (No sube contenido relacionado): 
-[<img src="https://user-images.githubusercontent.com/85806077/235405476-4d2b1727-29ff-4380-a5d0-44eab512a03d.png" alt="TikTok de la minmin XD" width="20" />&nbsp; Tiktok de la poderosisima minmin](https://www.tiktok.com/@minminaburrida){:target="_blank"}
+[](https://www.tiktok.com/@minminaburrida){:target="_blank"}
+
+
+[<img src="https://user-images.githubusercontent.com/85806077/235405476-4d2b1727-29ff-4380-a5d0-44eab512a03d.png" alt="TikTok de la minmin XD" width="20" />&nbsp; Tiktok de la poderosisima minmin]([URL](https://www.tiktok.com/@minminaburrida)){:target="_blank" rel="noopener"}
+
 
 
 
