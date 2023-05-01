@@ -1,0 +1,188 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Reservacion @TIMESTAMP</title>
+    <style>
+        html {
+            padding: .25in;
+        }
+
+        img {
+            margin: auto;
+
+        }
+
+        table.border {
+            border-collapse: collapse;
+        }
+
+        table.border th {
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        table.border td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+    <style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body>
+    <table style="width:100%">
+        <tbody>
+            <tr>
+                <td style="width:20%"><img src="https://i.postimg.cc/NGSWHhbd/logohr.png" style="width:60px"><img
+                        src="https://i.postimg.cc/NGSWHhbd/logohr.png" style="width:60px"></td>
+                <td style="width:60%" align="center" valign="top">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    <h4 style="margin:0px">HOTEL HEAVY</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"> Los Mochis, Sin. </td>
+                            </tr>
+                            <tr>
+                                <td align="center">Telefono: 567-546-55</td>
+                            </tr>
+                            <tr>
+                                <td align="center">RFC: HVY230416ML3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td style="width:20%">
+                    <table class="border" style="width:100%">
+                        <tbody>
+                            <tr>
+
+                            </tr>
+                            <tr>
+                                <td align="center" style="background-color:#D8D8D8">RESERVACION</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:.25in;" align="center"><img width="120px"
+                                        src="https://barcode.tec-it.com/barcode.ashx?data=@TIMESTAMP&amp;code=Code128&amp;translate-esc=true">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" height="20"></td>
+            </tr>
+
+
+            <tr>
+                <td colspan="3">
+                    <table style="width:100%">
+                        <tbody>
+                            <tr>
+                                <!-- -->
+                                <td colspan="1" style="width:15%">Cliente:</td>
+                                <td colspan="3" style="width:75%;border-bottom:1px solid black">@NOMBRECLI</td>
+                            </tr>
+                            <tr>
+                                <td style="width:15%">Correo: </td>
+                                <td style="width:30%;border-bottom:1px solid black">@MAIL</td>
+                                <td style="width:15%">Telefono</td>
+                                <td style="width:30%;border-bottom:1px solid black">@PHONE</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="width:100%">
+                        <tbody>
+                            <tr>
+                                <!-- -->
+                                <td colspan="1" style="width:15%">Atendido por:</td>
+                                <td colspan="3" style="width:75%;border-bottom:1px solid black">@EMPLEADO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="width:100%">
+                        <tbody>
+                            <tr>
+                                <td style="width:15%">Check In:</td>
+                                <td style="width:30%;border-bottom:1px solid black">@CI</td>
+                                <td style="width:15%">Check Out:</td>
+                                <td style="width:30%;border-bottom:1px solid black">@CO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2">
+
+
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td colspan="3" height="30"></td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+
+
+                    <table class="border" style="width:100%;">
+                        <thead>
+                            <tr style="background-color:#D8D8D8">
+                                <th>Tipo de Habitacion</th>
+                                <th>Piso</th>
+                                <th>APT</th>
+                                <th>Personas</th>
+                                <th>Noches</th>
+                                <th width="20%">Importe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @FILAS
+                            <!--<tr>
+                            <td>1</td>
+                            <td>sdafsda</td>
+                            <td>2.4</td>
+                            <td>2.4</td>
+                        </tr>-->
+
+                        </tbody>
+                    </table>
+                    <table width="100%" align="right">
+                        <tbody>
+                            <tr>
+
+
+
+                                <td width="75%" style="border: 0px !important"></td>
+
+
+
+                                <td style="border: 1px solid #000000" align="right">Total:</td>
+                                <td width="20%" style="border: 1px solid #000000">@TOTAL</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer" style="
+    bottom: 0;
+    /* right: 0; */
+    position: absolute;
+">&nbsp;Este no es un comprobante fiscal, recuerda guardar este comprobante, o en su defecto, el numero debajo del codigo de barras</div>
+
+
+</body>
+
+</html>
