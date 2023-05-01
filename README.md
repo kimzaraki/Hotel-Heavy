@@ -2,7 +2,7 @@
 
 en este proyecto utilizamos flask
 
-#Hicimos conexion remota a un servidor hosteado en Amazon Web Services (AWS)
+# Hicimos conexion remota a un servidor hosteado en Amazon Web Services (AWS)
 
 LINK: https://aws.amazon.com
 
