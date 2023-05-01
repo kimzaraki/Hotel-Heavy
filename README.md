@@ -5,7 +5,9 @@ Soy Tonta :v
 Para runnear el servidor utiliza el siguiente comando
 
 
-# <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png' width='30px'> py -m http.server 80
+# <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png' width='30px'> 
+<code>py -m http.server 80</code>
+
 
 y conectate a la direccion
 
