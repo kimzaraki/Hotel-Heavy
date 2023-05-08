@@ -46,7 +46,7 @@ def buscar_disponibles(timestamp):
         "checkin" : fr[0][3],"checkout" : fr[0][4]
     }; n=0;filas=""
     checkin = fr[0][3]
-    fw = q.query_db(f"select * from vw_r_json where Fecha = '{timestamp}'")
+    fw = q.query_db(f"select * from vw_reservaciones where Fecha = '{timestamp}'")
     q2 = f"select Presio from vw_habitaciones "; c = "where"
     for i in fr:
         q2 += f"{c} id = '{i[7]}' ";c = "or"

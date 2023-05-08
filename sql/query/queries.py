@@ -22,7 +22,7 @@ from sql.query.reservaciones import reservacion as reservas
 #WEB
 from sql.query.productos import web as productosweb
 from sql.query.ventas import web as ventasweb
-from sql.query.reservaciones import web as reservacionesweb
+from sql.query.reservaciones import web as reservacionesweb, alterar as chk
 
 
 #LOGIN // FUNCIONANDO AL 100%
@@ -105,7 +105,10 @@ def informe_reservacion(timestamp): return reservacionesweb.renderear(timestamp)
 
 @app.route('/reservaciones/<ts>')
 def b_reservaciones(ts):return reservacion.buscar(ts)
-
+@app.route('/alterar/<ts>_<e>')
+def alterar(ts,e): return chk.alterar(ts,e)
+@app.route('/checkin/<ts>')
+def checkin(ts): return chk.checkin(ts)
 #RETORNA TODOS LOS DATOS DE UN USUARIO
 @app.route('/empleados/<id>')
 def buscar_usuario(id):return empleados.buscar(id)
