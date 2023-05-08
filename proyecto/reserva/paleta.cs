@@ -9,11 +9,23 @@ namespace proyecto.reserva
 {
     public class paleta : KryptonPalette
     {
+        public static paleta p = new paleta();
+        public static void set(KryptonForm f)
+        {
+            f.Palette = p;foreach (Control c in f.Controls)
+            {
+                if (c is KryptonButton b) b.Palette = p;
+                if (c is KryptonTextBox t) t.Palette = p;
+                //                if (c is ) t.Palette = p;
+            }
+            //return f;
+        }
         public paleta()
         {
             // 
             // kryptonPalette1
             // 
+            //this.backco
             this.ButtonSpecs.FormClose.Image = global::proyecto.Properties.Resources.bt_exit1;
             this.ButtonSpecs.FormClose.ImageStates.ImageCheckedNormal = global::proyecto.Properties.Resources.bt_exit1;
             this.ButtonSpecs.FormClose.ImageStates.ImageCheckedPressed = global::proyecto.Properties.Resources.bt_exit1;
@@ -52,12 +64,6 @@ namespace proyecto.reserva
             this.ButtonStyles.ButtonButtonSpec.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom)
             | Krypton.Toolkit.PaletteDrawBorders.Left)
             | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.ButtonStyles.ButtonCommon.StateCheckedNormal.Back.Color1 = System.Drawing.Color.White;
-            this.ButtonStyles.ButtonCommon.StateCheckedNormal.Back.Color2 = System.Drawing.Color.Yellow;
-            this.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.Color1 = System.Drawing.Color.White;
-            this.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.Color2 = System.Drawing.Color.Yellow;
-            this.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.Color1 = System.Drawing.Color.White;
-            this.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.Color2 = System.Drawing.Color.Yellow;
             this.ButtonStyles.ButtonCommon.StateCommon.Back.Color1 = System.Drawing.Color.Snow;
             this.ButtonStyles.ButtonCommon.StateCommon.Back.Color2 = System.Drawing.Color.Yellow;
             this.ButtonStyles.ButtonCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -111,15 +117,16 @@ namespace proyecto.reserva
             this.InputControlStyles.InputControlCommon.StateActive.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom)
             | Krypton.Toolkit.PaletteDrawBorders.Left)
             | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.InputControlStyles.InputControlCommon.StateActive.Border.Rounding = 3F;
+            this.InputControlStyles.InputControlCommon.StateActive.Border.Rounding = 10F;
             this.InputControlStyles.InputControlCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.InputControlStyles.InputControlCommon.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom)
             | Krypton.Toolkit.PaletteDrawBorders.Left)
             | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.InputControlStyles.InputControlCommon.StateCommon.Border.Rounding = 3F;
+            this.InputControlStyles.InputControlCommon.StateCommon.Border.Rounding = 5F;
             this.InputControlStyles.InputControlCommon.StateCommon.Border.Width = 4;
             this.PanelStyles.PanelCommon.StateCommon.Color1 = System.Drawing.Color.LemonChiffon;
             this.Ribbon.RibbonGroupButtonText.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+
         }
     }
 }

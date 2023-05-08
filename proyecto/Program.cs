@@ -1,3 +1,5 @@
+using proyecto.procedimientos;
+
 namespace proyecto
 {
     internal static class Program
@@ -12,12 +14,13 @@ namespace proyecto
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            
+            //rest.consume("https://google.com");
             
             //proyecto.formsu.lista_articulos.load();
            //Application.Run(new reserva.fr_reservar());
            //Application.Run(new proyecto.menu.menu());
-            Application.Run(new login.login());
+           //Application.Run(new usuario.checkin_out());
+           Application.Run(new login.login());
         }
     }
 }

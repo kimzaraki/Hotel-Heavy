@@ -36,8 +36,6 @@ namespace proyecto.menu
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkInCheckOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +44,6 @@ namespace proyecto.menu
             this.agregarModificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.paletteowo = new proyecto.reserva.paleta();
             this.p_venta = new Krypton.Toolkit.KryptonPanel();
             this.kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             this.b_buscar = new Krypton.Toolkit.KryptonButton();
@@ -126,24 +123,10 @@ namespace proyecto.menu
             // 
             // checkInCheckOutToolStripMenuItem
             // 
-            this.checkInCheckOutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkInToolStripMenuItem,
-            this.checkOutToolStripMenuItem});
             this.checkInCheckOutToolStripMenuItem.Name = "checkInCheckOutToolStripMenuItem";
             this.checkInCheckOutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.checkInCheckOutToolStripMenuItem.Text = "Check in / Check out";
-            // 
-            // checkInToolStripMenuItem
-            // 
-            this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.checkInToolStripMenuItem.Text = "Check In";
-            // 
-            // checkOutToolStripMenuItem
-            // 
-            this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
-            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.checkOutToolStripMenuItem.Text = "Check Out";
+            this.checkInCheckOutToolStripMenuItem.Click += new System.EventHandler(this.checkInCheckOutToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -203,115 +186,6 @@ namespace proyecto.menu
             this.reporteDeProductosToolStripMenuItem.Text = "Reporte de productos";
             this.reporteDeProductosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeProductosToolStripMenuItem_Click);
             // 
-            // paletteowo
-            // 
-            this.paletteowo.ButtonSpecs.FormClose.Image = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImageCheckedNormal = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImageCheckedPressed = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImageCheckedTracking = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImageDisabled = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImageNormal = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImagePressed = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormClose.ImageStates.ImageTracking = global::proyecto.Properties.Resources.bt_exit1;
-            this.paletteowo.ButtonSpecs.FormMax.Image = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImageCheckedNormal = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImageCheckedPressed = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImageCheckedTracking = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImageDisabled = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImageNormal = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImagePressed = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMax.ImageStates.ImageTracking = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormMin.Image = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImageCheckedNormal = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImageCheckedPressed = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImageCheckedTracking = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImageDisabled = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImageNormal = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImagePressed = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormMin.ImageStates.ImageTracking = global::proyecto.Properties.Resources.bt_minus;
-            this.paletteowo.ButtonSpecs.FormRestore.Image = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImageCheckedNormal = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImageCheckedPressed = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImageCheckedTracking = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImageDisabled = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImageNormal = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImagePressed = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonSpecs.FormRestore.ImageStates.ImageTracking = global::proyecto.Properties.Resources.bt_tikito;
-            this.paletteowo.ButtonStyles.ButtonAlternate.StateDisabled.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.ButtonStyles.ButtonButtonSpec.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCheckedNormal.Back.Color1 = System.Drawing.Color.White;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCheckedNormal.Back.Color2 = System.Drawing.Color.Yellow;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.Color1 = System.Drawing.Color.White;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCheckedPressed.Back.Color2 = System.Drawing.Color.Yellow;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.Color1 = System.Drawing.Color.White;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCheckedTracking.Back.Color2 = System.Drawing.Color.Yellow;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCommon.Back.Color1 = System.Drawing.Color.Snow;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCommon.Back.Color2 = System.Drawing.Color.Yellow;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.paletteowo.ButtonStyles.ButtonCommon.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.ButtonStyles.ButtonCommon.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.paletteowo.ButtonStyles.ButtonCommon.StatePressed.Back.Color2 = System.Drawing.Color.Yellow;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateTracking.Back.Color1 = System.Drawing.Color.White;
-            this.paletteowo.ButtonStyles.ButtonCommon.StateTracking.Back.Color2 = System.Drawing.Color.Yellow;
-            this.paletteowo.ButtonStyles.ButtonForm.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.ButtonStyles.ButtonInputControl.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.ButtonStyles.ButtonStandalone.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.ButtonStyles.ButtonStandalone.StateCommon.Border.Rounding = 35F;
-            this.paletteowo.ButtonStyles.ButtonStandalone.StateCommon.Border.Width = 3;
-            this.paletteowo.ControlStyles.ControlCommon.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.DragDrop.SolidBorder = System.Drawing.Color.Lime;
-            this.paletteowo.FormStyles.FormCommon.StateActive.Back.Color1 = System.Drawing.Color.LemonChiffon;
-            this.paletteowo.FormStyles.FormCommon.StateActive.Back.Color2 = System.Drawing.SystemColors.ActiveBorder;
-            this.paletteowo.FormStyles.FormCommon.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.paletteowo.FormStyles.FormCommon.StateActive.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.paletteowo.FormStyles.FormCommon.StateActive.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.FormStyles.FormCommon.StateActive.Border.Rounding = 10F;
-            this.paletteowo.FormStyles.FormCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.paletteowo.FormStyles.FormCommon.StateCommon.Back.Color2 = System.Drawing.SystemColors.ActiveBorder;
-            this.paletteowo.FormStyles.FormCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.paletteowo.FormStyles.FormCommon.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.paletteowo.FormStyles.FormCommon.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.FormStyles.FormCommon.StateCommon.Border.Rounding = 10F;
-            this.paletteowo.GridStyles.GridCommon.StateCommon.Background.Color1 = System.Drawing.Color.White;
-            this.paletteowo.GridStyles.GridCommon.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.paletteowo.GridStyles.GridCommon.StateCommon.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.paletteowo.GridStyles.GridCommon.StateCommon.HeaderRow.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.GridStyles.GridCommon.StateCommon.HeaderRow.Border.Rounding = 5F;
-            this.paletteowo.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.Yellow;
-            this.paletteowo.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.Gold;
-            this.paletteowo.InputControlStyles.InputControlCommon.StateActive.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.InputControlStyles.InputControlCommon.StateActive.Border.Rounding = 10F;
-            this.paletteowo.InputControlStyles.InputControlCommon.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.paletteowo.InputControlStyles.InputControlCommon.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.paletteowo.InputControlStyles.InputControlCommon.StateCommon.Border.Rounding = 5F;
-            this.paletteowo.InputControlStyles.InputControlCommon.StateCommon.Border.Width = 4;
-            this.paletteowo.PanelStyles.PanelCommon.StateCommon.Color1 = System.Drawing.Color.LemonChiffon;
-            this.paletteowo.Ribbon.RibbonGroupButtonText.StateCommon.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            // 
             // p_venta
             // 
             this.p_venta.Controls.Add(this.kryptonButton1);
@@ -329,8 +203,6 @@ namespace proyecto.menu
             this.p_venta.Location = new System.Drawing.Point(10, 70);
             this.p_venta.MaximumSize = new System.Drawing.Size(850, 500);
             this.p_venta.Name = "p_venta";
-            this.p_venta.Palette = this.paletteowo;
-            this.p_venta.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.p_venta.Size = new System.Drawing.Size(850, 500);
             this.p_venta.TabIndex = 1;
             this.p_venta.Visible = false;
@@ -340,8 +212,6 @@ namespace proyecto.menu
             this.kryptonButton1.CornerRoundingRadius = -1F;
             this.kryptonButton1.Location = new System.Drawing.Point(442, 0);
             this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Palette = this.paletteowo;
-            this.kryptonButton1.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.kryptonButton1.Size = new System.Drawing.Size(128, 35);
             this.kryptonButton1.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.kryptonButton1.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -358,8 +228,6 @@ namespace proyecto.menu
             this.b_buscar.CornerRoundingRadius = -1F;
             this.b_buscar.Location = new System.Drawing.Point(290, 0);
             this.b_buscar.Name = "b_buscar";
-            this.b_buscar.Palette = this.paletteowo;
-            this.b_buscar.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.b_buscar.Size = new System.Drawing.Size(128, 35);
             this.b_buscar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.b_buscar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -381,8 +249,6 @@ namespace proyecto.menu
             this.Importe});
             this.tabla.Location = new System.Drawing.Point(0, 169);
             this.tabla.Name = "tabla";
-            this.tabla.Palette = this.paletteowo;
-            this.tabla.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tabla.ReadOnly = true;
             this.tabla.RowHeadersVisible = false;
             this.tabla.RowTemplate.Height = 25;
@@ -419,8 +285,6 @@ namespace proyecto.menu
             this.b_cs_save.CornerRoundingRadius = -1F;
             this.b_cs_save.Location = new System.Drawing.Point(639, 418);
             this.b_cs_save.Name = "b_cs_save";
-            this.b_cs_save.Palette = this.paletteowo;
-            this.b_cs_save.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.b_cs_save.Size = new System.Drawing.Size(211, 54);
             this.b_cs_save.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.b_cs_save.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -436,9 +300,7 @@ namespace proyecto.menu
             // 
             this.tb_cs_id.Location = new System.Drawing.Point(75, 0);
             this.tb_cs_id.Name = "tb_cs_id";
-            this.tb_cs_id.Palette = this.paletteowo;
-            this.tb_cs_id.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.tb_cs_id.Size = new System.Drawing.Size(209, 35);
+            this.tb_cs_id.Size = new System.Drawing.Size(209, 23);
             this.tb_cs_id.TabIndex = 27;
             // 
             // tb_phone
@@ -446,30 +308,24 @@ namespace proyecto.menu
             this.tb_phone.Location = new System.Drawing.Point(677, 76);
             this.tb_phone.MaxLength = 10;
             this.tb_phone.Name = "tb_phone";
-            this.tb_phone.Palette = this.paletteowo;
-            this.tb_phone.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tb_phone.ReadOnly = true;
-            this.tb_phone.Size = new System.Drawing.Size(135, 35);
+            this.tb_phone.Size = new System.Drawing.Size(135, 23);
             this.tb_phone.TabIndex = 26;
             // 
             // tb_mail
             // 
             this.tb_mail.Location = new System.Drawing.Point(375, 76);
             this.tb_mail.Name = "tb_mail";
-            this.tb_mail.Palette = this.paletteowo;
-            this.tb_mail.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tb_mail.ReadOnly = true;
-            this.tb_mail.Size = new System.Drawing.Size(216, 35);
+            this.tb_mail.Size = new System.Drawing.Size(216, 23);
             this.tb_mail.TabIndex = 25;
             // 
             // tb_cliente
             // 
             this.tb_cliente.Location = new System.Drawing.Point(90, 77);
             this.tb_cliente.Name = "tb_cliente";
-            this.tb_cliente.Palette = this.paletteowo;
-            this.tb_cliente.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.tb_cliente.ReadOnly = true;
-            this.tb_cliente.Size = new System.Drawing.Size(209, 35);
+            this.tb_cliente.Size = new System.Drawing.Size(209, 23);
             this.tb_cliente.TabIndex = 24;
             // 
             // label5
@@ -541,8 +397,6 @@ namespace proyecto.menu
             this.p_clientes.Location = new System.Drawing.Point(10, 70);
             this.p_clientes.MaximumSize = new System.Drawing.Size(850, 450);
             this.p_clientes.Name = "p_clientes";
-            this.p_clientes.Palette = this.paletteowo;
-            this.p_clientes.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.p_clientes.Size = new System.Drawing.Size(850, 450);
             this.p_clientes.TabIndex = 17;
             this.p_clientes.Visible = false;
@@ -562,8 +416,6 @@ namespace proyecto.menu
             this.b_cc_guardar.CornerRoundingRadius = -1F;
             this.b_cc_guardar.Location = new System.Drawing.Point(551, 300);
             this.b_cc_guardar.Name = "b_cc_guardar";
-            this.b_cc_guardar.Palette = this.paletteowo;
-            this.b_cc_guardar.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.b_cc_guardar.Size = new System.Drawing.Size(105, 35);
             this.b_cc_guardar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.b_cc_guardar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -579,8 +431,6 @@ namespace proyecto.menu
             this.b_cc_agregar.CornerRoundingRadius = -1F;
             this.b_cc_agregar.Location = new System.Drawing.Point(551, 188);
             this.b_cc_agregar.Name = "b_cc_agregar";
-            this.b_cc_agregar.Palette = this.paletteowo;
-            this.b_cc_agregar.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.b_cc_agregar.Size = new System.Drawing.Size(105, 32);
             this.b_cc_agregar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.b_cc_agregar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -597,8 +447,6 @@ namespace proyecto.menu
             this.b_cc_editar.CornerRoundingRadius = -1F;
             this.b_cc_editar.Location = new System.Drawing.Point(551, 139);
             this.b_cc_editar.Name = "b_cc_editar";
-            this.b_cc_editar.Palette = this.paletteowo;
-            this.b_cc_editar.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.b_cc_editar.Size = new System.Drawing.Size(105, 35);
             this.b_cc_editar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.b_cc_editar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -626,8 +474,6 @@ namespace proyecto.menu
             this.b_cc_buscar.CornerRoundingRadius = -1F;
             this.b_cc_buscar.Location = new System.Drawing.Point(551, 20);
             this.b_cc_buscar.Name = "b_cc_buscar";
-            this.b_cc_buscar.Palette = this.paletteowo;
-            this.b_cc_buscar.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.b_cc_buscar.Size = new System.Drawing.Size(105, 35);
             this.b_cc_buscar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
             this.b_cc_buscar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -654,9 +500,7 @@ namespace proyecto.menu
             this.t_cc_cid_b.Location = new System.Drawing.Point(267, 20);
             this.t_cc_cid_b.MaxLength = 18;
             this.t_cc_cid_b.Name = "t_cc_cid_b";
-            this.t_cc_cid_b.Palette = this.paletteowo;
-            this.t_cc_cid_b.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.t_cc_cid_b.Size = new System.Drawing.Size(267, 35);
+            this.t_cc_cid_b.Size = new System.Drawing.Size(267, 23);
             this.t_cc_cid_b.TabIndex = 1;
             this.t_cc_cid_b.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enter_buscar);
             // 
@@ -675,10 +519,8 @@ namespace proyecto.menu
             // 
             this.t_cc_curp.Location = new System.Drawing.Point(176, 300);
             this.t_cc_curp.Name = "t_cc_curp";
-            this.t_cc_curp.Palette = this.paletteowo;
-            this.t_cc_curp.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.t_cc_curp.ReadOnly = true;
-            this.t_cc_curp.Size = new System.Drawing.Size(358, 35);
+            this.t_cc_curp.Size = new System.Drawing.Size(358, 23);
             this.t_cc_curp.TabIndex = 8;
             this.t_cc_curp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
             // 
@@ -697,10 +539,8 @@ namespace proyecto.menu
             // 
             this.t_cc_phone.Location = new System.Drawing.Point(176, 226);
             this.t_cc_phone.Name = "t_cc_phone";
-            this.t_cc_phone.Palette = this.paletteowo;
-            this.t_cc_phone.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.t_cc_phone.ReadOnly = true;
-            this.t_cc_phone.Size = new System.Drawing.Size(358, 35);
+            this.t_cc_phone.Size = new System.Drawing.Size(358, 23);
             this.t_cc_phone.TabIndex = 6;
             this.t_cc_phone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
             // 
@@ -730,10 +570,8 @@ namespace proyecto.menu
             // 
             this.t_cc_name.Location = new System.Drawing.Point(176, 185);
             this.t_cc_name.Name = "t_cc_name";
-            this.t_cc_name.Palette = this.paletteowo;
-            this.t_cc_name.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.t_cc_name.ReadOnly = true;
-            this.t_cc_name.Size = new System.Drawing.Size(358, 35);
+            this.t_cc_name.Size = new System.Drawing.Size(358, 23);
             this.t_cc_name.TabIndex = 5;
             this.t_cc_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
             // 
@@ -741,20 +579,16 @@ namespace proyecto.menu
             // 
             this.t_cc_id.Location = new System.Drawing.Point(445, 139);
             this.t_cc_id.Name = "t_cc_id";
-            this.t_cc_id.Palette = this.paletteowo;
-            this.t_cc_id.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.t_cc_id.ReadOnly = true;
-            this.t_cc_id.Size = new System.Drawing.Size(89, 35);
+            this.t_cc_id.Size = new System.Drawing.Size(89, 23);
             this.t_cc_id.TabIndex = 4;
             // 
             // t_cc_mail
             // 
             this.t_cc_mail.Location = new System.Drawing.Point(176, 262);
             this.t_cc_mail.Name = "t_cc_mail";
-            this.t_cc_mail.Palette = this.paletteowo;
-            this.t_cc_mail.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.t_cc_mail.ReadOnly = true;
-            this.t_cc_mail.Size = new System.Drawing.Size(358, 35);
+            this.t_cc_mail.Size = new System.Drawing.Size(358, 23);
             this.t_cc_mail.TabIndex = 7;
             this.t_cc_mail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
             // 
@@ -771,11 +605,10 @@ namespace proyecto.menu
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu_st;
             this.Name = "menu";
-            this.Palette = this.paletteowo;
-            this.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.menu_FormClosing);
+            this.Load += new System.EventHandler(this.menu_Load);
             this.menu_st.ResumeLayout(false);
             this.menu_st.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p_venta)).EndInit();
@@ -799,15 +632,12 @@ namespace proyecto.menu
         private ToolStripMenuItem checkInCheckOutToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem consultarClienteToolStripMenuItem;
-        private ToolStripMenuItem checkInToolStripMenuItem;
-        private ToolStripMenuItem checkOutToolStripMenuItem;
         private ToolStripMenuItem ventazToolStripMenuItem;
         private ToolStripMenuItem consultarVentaToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ToolStripMenuItem productosToolStripMenuItem;
         private ToolStripMenuItem agregarModificarToolStripMenuItem;
         private ToolStripMenuItem reporteDeProductosToolStripMenuItem;
-        public  paleta paletteowo;
         //private Krypton.Toolkit.KryptonPanel p_venta;
         private Krypton.Toolkit.KryptonPanel p_menu;
         private Krypton.Toolkit.KryptonButton b_cs_save;

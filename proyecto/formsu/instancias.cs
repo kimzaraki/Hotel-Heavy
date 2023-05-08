@@ -21,6 +21,43 @@ namespace proyecto.formsu
             return menu;
         }
     }
+    class reservacion
+    {
+        public reservacion_d detalles { get; set; }
+        public List<habitacion_reservada> habitaciones_reservadas { get; set; }
+        public reservacion(reservacion_d d, List<habitacion_reservada> rr) {
+            habitaciones_reservadas = rr;detalles=d;
+        }
+    }
+    class reservacion_d
+    {
+        public string cliente { get; set; }
+        public string checkin { get; set; }
+        public string checkout { get; set; }
+
+    }
+    class habitacion_reservada
+    {
+        public string subtotal { get; set; }
+        public string personas { get; set; }
+        public string piso { get; set; }
+        public string apt { get; set; }
+    }
+    public class lista_habitaciones
+    {
+        public static List<habitacion> lista;
+        public static bool load(string checkin, string checkout)
+        {
+            lista = new List<habitacion>();
+            lista.Clear();
+            string j = _rest.consume($"http://localhost/fechasdisponibles/{checkin}_{checkout}");
+            if (j[0] != '{') return false;
+            var json = JsonConvert.DeserializeObject<Dictionary<string, habitacion>>(j);
+            foreach (var p in json) lista.Add(p.Value);
+            return true;
+        }
+    }
+
     class usuario
     {
         public static string nombre;
@@ -82,18 +119,5 @@ namespace proyecto.formsu
         public string precio { get; set; }
         public string estado { get; set; }
     }
-    public class lista_habitaciones
-    {
-        public static List<habitacion> lista;
-        public static bool load(string checkin, string checkout)
-        {
-            lista = new List<habitacion>();
-            lista.Clear();
-            string j = _rest.consume($"http://localhost/fechasdisponibles/{checkin}_{checkout}");
-            if (j[0] != '{') return false; 
-            var json = JsonConvert.DeserializeObject<Dictionary<string, habitacion>>(j);
-            foreach (var p in json) lista.Add(p.Value);
-            return true;
-        }
-    }
+    
 }

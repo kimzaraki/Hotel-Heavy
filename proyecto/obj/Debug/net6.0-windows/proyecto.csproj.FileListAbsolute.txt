@@ -96,9 +96,8 @@ C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Deb
 C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\obj\Debug\net6.0-windows\proyecto.csproj.CopyComplete
 C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\obj\Debug\net6.0-windows\proyecto.genruntimeconfig.cache
 C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\obj\Debug\net6.0-windows\ref\proyecto.dll
-C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\EO.Base.dll
-C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\EO.WebBrowser.dll
-C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\EO.WebEngine.dll
-C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\EO.Web.dll
-C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\EO.WebBrowser.WinForm.dll
 C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\obj\Debug\net6.0-windows\proyecto.reporte.test.resources
+C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\obj\Debug\net6.0-windows\proyecto.usuario.checkin_out.resources
+C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\pegro\Desktop\project part1\proyecto bueno\front cgato\proyecto\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

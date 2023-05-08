@@ -10,16 +10,19 @@ using sck = System.Net.Sockets.Socket;
 using System.Diagnostics;
 using System.Net.Sockets;
 using Krypton.Toolkit;
+using proyecto.Properties;
+using System.Security.Policy;
 
 namespace proyecto.procedimientos
 {
     internal class rest
     {
+        static RestClient client = new RestClient();
         public static string consume(string url)
         {
-                var client = new RestClient(url);
-                var request = new RestRequest();
-                RestResponse response = client.Execute(request);
+                
+                var request = new RestRequest(url, Method.Get);
+            RestResponse response = client.Execute(request);
                 if (response.Content == null) return "3";
                 return response.Content.ToString();
         }

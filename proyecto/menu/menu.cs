@@ -20,6 +20,7 @@ using proyecto.reports;
 
 using proyecto.reserva;
 using proyecto.formsu;
+using proyecto.usuario;
 
 namespace proyecto.menu
 {
@@ -42,19 +43,16 @@ namespace proyecto.menu
         //MENU
         //
         //CARGANDO
-        /*
         private void menu_Load(object sender, EventArgs e)
         {
             //this.Controls.Add(r); r.Visible = false;
             //private navegador brw = new navegador();
-            foreach (inst.Producto p in inst.lista_articulos.lista) {
-                cb_s_articulo.Items.Add(p.nombre);
-            }
+
             this.Text = "QUE DESEA HACER MIAPA?";
             ocultar_peneles();
             //brw.browsah.Url = ("http://localhost/");
             //brw.Visible = true;
-        }*/
+        }
         //OCULTAR TODOS LOS MODULOS (PANELES)
         private void ocultar_peneles()
         { foreach (KryptonPanel p in Controls.OfType<KryptonPanel>()) p.Visible = false; }
@@ -66,11 +64,7 @@ namespace proyecto.menu
         //
         //CARGAR MODULO
         private void consultarVentaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ocultar_peneles();
-            mt.limpieza.limpiar(p_venta, tabla);
-            this.Text = "CONSULTA DE VENTAS";
-            p_venta.Visible = true;
+        { cambiar_p("CONSULTA DE VENTAS", p_venta);mt.limpieza.limpiar(p_venta, tabla);
             //var fr = new proyecto.reports.Generate_report(); fr.Show();this.Hide();
         }
         //GUARDAR PDF
@@ -87,23 +81,22 @@ namespace proyecto.menu
         //
         //MOSTRAR PANEL
         private void reporteDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {cambiar_p("GENERADOR DE REPORTES DE PRODUCTOS",p_r_prods);}
+        //GUARDAR PDF
+        
+        void toggle_cs_items(bool si, int tabla_y)
         {
-            ocultar_peneles();
-            this.Text = "GENERADOR DE REPORTES DE PRODUCTOS";
-            p_r_prods.Visible = true;
+            tabla.Location = new System.Drawing.Point(0, tabla_y);
         }
 
+        void cambiar_p(string txt, KryptonPanel p)
+        {ocultar_peneles();Text=txt;p.Visible=true;}
+        //
         //PANEL DE CLIENTES (BUSCAR/AGREGAR)
         //
         //MOSTRAR PANEL
         private void consultarClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ocultar_peneles();
-            this.Text = "APARTADO DE CLIENTES";
-            canedit(false);
-            limpieza.limpiar(p_clientes);
-            p_clientes.Visible= true;
-        }
+        {cambiar_p("APARTADO DE CLIENTES", p_clientes);limpieza.limpiar(p_clientes);}
 
         private void b_cc_buscar_Click(object sender, EventArgs e)
         {search();}
@@ -154,9 +147,6 @@ namespace proyecto.menu
         private void enter_buscar(object sender, KeyEventArgs e)
         {if (e.KeyCode == Keys.Enter) search();}
 
-        /*private void select_art(object sender, EventArgs e)
-        { tb_s_precio.Text = inst.lista_articulos.lista[cb_s_articulo.SelectedIndex].precio; }
-        */
         private void sumar_cant_rueda(object sender, MouseEventArgs e)
         {
             if (((KryptonTextBox)sender).Text == "") ((KryptonTextBox)sender).Text = "1";
@@ -170,32 +160,16 @@ namespace proyecto.menu
         //
         //AGREGAR RESERVACION
         private void reservarToolStripMenuItem_Click(object sender, EventArgs e)
-        {ocultar_peneles();Text = "RESERVAR HABITACIONES";p_reserva.Visible = true;
+        {
+            cambiar_p("RESERVAR HABITACIONES", p_reserva);
             //r.Visible= true;
             //r.Size = new System.Drawing.Size(850, 500);
         }
 
         private void st_add_Click(object sender, EventArgs e)
-        {
-            ocultar_peneles();mt.limpieza.limpiar(p_venta, tabla);
-            //toggle_cs_items(true, 180);
-            this.Text = "AGREGAR ARTICULOS A VENTAS";
-            p_venta.Visible = true;
-        }
-        /*
-        private void b_s_plus_Click(object sender, EventArgs e)
-        {
-            int index = cb_s_articulo.SelectedIndex;
-            Producto _p = lista_articulos.lista.ElementAt(index);
-            DataGridViewRow row = buscar_fila(tabla, _p.nombre);
-            //row[];
-        }
-        */
-        DataGridViewRow buscar_fila(DataGridView t, string dato)
-        {
-            foreach (DataGridViewRow row in t.Rows) if (row.Cells["Articulos"].Value.ToString() != null)
-                    if (row.Cells["Articulos"].Value.ToString() == dato) return row;
-            return null;
-        }
+        {cambiar_p("AGREGAR ARTICULOS A VENTAS", p_venta);mt.limpieza.limpiar(p_venta, tabla);}
+
+        private void checkInCheckOutToolStripMenuItem_Click(object sender, EventArgs e)
+        { checkin_out c = new checkin_out();c.Show(); this.Hide();}
     }
 }
