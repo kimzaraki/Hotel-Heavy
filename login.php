@@ -11,21 +11,28 @@
 </head>
 <body onload="iniciar()">
 
-	<div class="container">
-		<h1>&#129304; LOGIN &#129304;
-		</h1>
-		<!--!esta es la funcionalidad del boton-->
-				<!-- <form action="reservar.php" method="post"> -->
-				<form action="login" method="post">
-					<label for="nombre">Usuario:</label>
-					<input type="text" name="nombre" id="nombre" required>
-					<label for="pass">Contraseña:</label>
-					<input type="password" name="pass" id="pass" required>
-					<div></div>
-					<input id="b_login" type="submit" onclick="iniciar()" value="Login">
-		
-		<!--</form>!-->
-	</div>
+<div style="
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+"><div></div><div class="login_container">
+    <h1 class="txt">🤘 LOGIN 🤘
+        <buton class="txt" style="position:relative;float: right;background-color:#f22;padding:3px 15px;border:2px solid;border-radius:100%" onclick="d.innerHTML='';">X</buton></h1>
+    <!--!esta es la funcionalidad del boton-->
+            <!-- <form action="reservar.php" method="post"> -->
+                
+            <form action="index.php" method="post" style="
+    margin: auto;
+">
+                <label class="txt" for="nombre">Usuario:</label>
+                <input class="txt" type="text" name="nombre" id="nombre" required="">
+                <label class="txt" for="pass">Contraseña:</label>
+                <input class="txt" type="password" name="pass" id="pass" required="">
+                <div></div>
+                <input class="txt" id="b_login" type="submit" value="Login">
+    
+    <!--</form>!-->
+</form></div><div></div></div>
 
 	
 
