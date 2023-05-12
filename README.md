@@ -10,5 +10,4 @@ LINK: https://aws.amazon.com
 <a href="https://www.tiktok.com/@minminaburrida"><img style="border-radius:10px" src="https://user-images.githubusercontent.com/85806077/235405476-4d2b1727-29ff-4380-a5d0-44eab512a03d.png" alt="TikTok de la minmin XD" width="20" />&nbsp; Tiktok de la minminita</a>
 
 
-
-
+# Cada dia mas linuxero (*procede a no usar linux*)
