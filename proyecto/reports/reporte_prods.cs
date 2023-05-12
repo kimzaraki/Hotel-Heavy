@@ -14,6 +14,8 @@ using iTextSharp.text.pdf.codec.wmf;
 using r_prods = proyecto.reports.reporte_prods;
 using proyecto.reserva;
 
+
+//TA FEITO, SI GUSTAS MOVERLE NI PEDO, TOTAL AUN SIGUE EN PROCESO DE IMPLEMENTARSE
 namespace proyecto.reports
 {
     //UI

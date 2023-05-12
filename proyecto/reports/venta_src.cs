@@ -11,6 +11,8 @@ using _rest = proyecto.procedimientos.rest;
 using mt = proyecto.procedimientos;
 using Krypton.Toolkit;
 
+
+//YA JALA AL PUTAZO, NO TOCAR :V
 namespace proyecto.reports
 {
     internal class venta_src
@@ -21,7 +23,7 @@ namespace proyecto.reports
             save.DefaultExt = "pdf";
             save.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss")); //especificicamos el tipo de archivo y nombre
             //CORREGIR ESTO
-            string url = ($"http://localhost/ventas/web/{id}_{dinusuario.id}_{save.FileName}");
+            string url = ($"http://localhost/reservaciones/web/{id}");
             if (save.ShowDialog() == DialogResult.OK)
             {var generar = new topdf(url, save.FileName);}
         }

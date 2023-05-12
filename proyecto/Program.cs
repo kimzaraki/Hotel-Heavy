@@ -10,6 +10,9 @@ namespace proyecto
         [STAThread]
         static void Main()
         {
+            //QUITALE EL COMENTARIO A LO QUE DESEAS CORRER PRIMERO
+                    //Y POR OBVIAS RAZONES PONSELO AL OTRO
+
             //proyecto.formsu.usuario.newsesion("pepe", "Asd", "XD");
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.

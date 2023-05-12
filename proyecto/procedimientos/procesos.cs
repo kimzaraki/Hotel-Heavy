@@ -12,20 +12,25 @@ using System.Net.Sockets;
 using Krypton.Toolkit;
 using proyecto.Properties;
 using System.Security.Policy;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace proyecto.procedimientos
 {
     internal class rest
     {
+        static string _url = "http://localhost", port = "8000";
         static RestClient client = new RestClient();
         public static string consume(string url)
         {
-                
+            url = addport(_url, port, url) ;
+            //MessageBox.Show(url);
                 var request = new RestRequest(url, Method.Get);
             RestResponse response = client.Execute(request);
                 if (response.Content == null) return "3";
                 return response.Content.ToString();
         }
+        public static string addport(string url, string port, string realurl)
+        {return $"{url}:{port}{realurl.Substring(url.Length)}";}
     }
 
     internal class limpieza

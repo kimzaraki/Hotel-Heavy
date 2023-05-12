@@ -63,7 +63,8 @@ namespace proyecto.formsu
         public static string nombre;
         public static string id;
         public static string user;
-        public static usuario _inst = null;
+        public static usuario _inst = new usuario("minmin", "1", "minmin");
+        //public static usuario _inst = null;
         private usuario(string _nombre, string _id, string _user)
         {
             nombre = _nombre;
@@ -77,15 +78,15 @@ namespace proyecto.formsu
     }
     class cliente
     {
-        public static string id, nombre, telefono, correo, curp;
+        public static string id, nombre, telefono, correo, curp, pass;
         public static cliente _inst = null;
-        private cliente(string _id, string _nombre, string _telefono, string _correo, string _curp)
+        private cliente(string _id, string _nombre, string _telefono, string _correo, string _curp, string _pass)
         {
-            id = _id; nombre = _nombre; telefono = _telefono; correo = _correo; curp = _curp;
+            id = _id; nombre = _nombre; telefono = _telefono; correo = _correo; curp = _curp; pass = _pass;
         }
-        public static void newuser(string id, string nombre, string telefono, string correo, string curp)
+        public static void newuser(string id, string nombre, string telefono, string correo, string curp, string pass)
         {
-            _inst = new cliente(id, nombre, telefono, correo, curp);
+            _inst = new cliente(id, nombre, telefono, correo, curp, pass);
         }
     }
     /*

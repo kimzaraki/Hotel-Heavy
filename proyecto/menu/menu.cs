@@ -21,19 +21,24 @@ using proyecto.reports;
 using proyecto.reserva;
 using proyecto.formsu;
 using proyecto.usuario;
-
+using _rest = proyecto.procedimientos.rest;
 namespace proyecto.menu
 {
     public partial class menu : KryptonForm
     {
         reservar p_reserva = reservar.get_inst();
         p_reporte p_r_prods = p_reporte.get_inst();
+        checkin_checkout p_checkin = new checkin_checkout(paleta.p);
+        clientes p_clientes = new clientes(paleta.p);
         bool toedit = false;
         //NO TOCAR
         public menu()
         {InitializeComponent();
             Controls.Add(p_r_prods);
             Controls.Add(p_reserva);
+            Controls.Add(p_checkin);
+            Controls.Add(p_clientes);
+            paleta.set(p_venta);
             ocultar_peneles();
         }
 
@@ -47,7 +52,7 @@ namespace proyecto.menu
         {
             //this.Controls.Add(r); r.Visible = false;
             //private navegador brw = new navegador();
-
+            
             this.Text = "QUE DESEA HACER MIAPA?";
             ocultar_peneles();
             //brw.browsah.Url = ("http://localhost/");
@@ -97,64 +102,6 @@ namespace proyecto.menu
         //MOSTRAR PANEL
         private void consultarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {cambiar_p("APARTADO DE CLIENTES", p_clientes);limpieza.limpiar(p_clientes);}
-
-        private void b_cc_buscar_Click(object sender, EventArgs e)
-        {search();}
-        //AGREGAR CLIENTE
-        private void b_cc_agregar_Click(object sender, EventArgs e)
-        { add(); }
-        public void add()
-        {
-            string idmax = mt.rest.consume("http://localhost/maxid/clientes");
-            clr(t_cc_curp); clr(t_cc_phone); clr(t_cc_mail); clr(t_cc_name);
-            t_cc_name.Focus();
-            t_cc_id.Text = $"{mathsu.toint(idmax) + 1}"; toedit = false;
-            if (t_cc_curp.ReadOnly == true) { canedit(true); t_cc_name.Focus(); }
-        }
-        //EDITAR EL READONLY DE LOS BOTONES
-        private void b_cc_editar_Click(object sender, EventArgs e)
-        {if (t_cc_id.Text != "")
-            {
-                toedit = true;
-                //clientes.toggle_readmode(t_cc_id, false);
-                bool a = t_cc_curp.ReadOnly; canedit(a);
-                t_cc_name.Focus(); t_cc_name.SelectAll();
-            }
-            else MessageBox.Show("NO PUEDES EDITAR UN CAMPO VACIO");
-        }
-        //PONE EN EDIT A TODOS LOS TB DE ABAJO
-
-        private void canedit(bool a)
-        {
-            clientes.toggle_readmode(t_cc_curp, a);
-            clientes.toggle_readmode(t_cc_phone, a);
-            clientes.toggle_readmode(t_cc_name, a);
-            clientes.toggle_readmode(t_cc_mail, a);
-        }
-        private void clr(KryptonTextBox t) {t.Clear();}
-        private void b_cc_guardar_Click(object sender, EventArgs e){save();}
-        void save(){clientes.guardar(t_cc_id.Text, t_cc_name.Text, t_cc_phone.Text, t_cc_mail.Text, t_cc_curp.Text, toedit);}
-        void search(){
-            string[] vals = clientes.buscar(t_cc_cid_b.Text);
-            if (vals == null) { MessageBox.Show("No se encontro nada"); return; }
-            t_cc_id.Text = vals[0];t_cc_name.Text = vals[1];t_cc_phone.Text = vals[2];
-            t_cc_curp.Text = vals[3];t_cc_mail.Text = vals[4];
-            canedit(false);clientes.toggle_readmode(t_cc_id, false);
-        }
-        private void detect_enter(object sender, KeyEventArgs e)
-        {if (e.KeyCode == Keys.Enter) save();}
-
-        private void enter_buscar(object sender, KeyEventArgs e)
-        {if (e.KeyCode == Keys.Enter) search();}
-
-        private void sumar_cant_rueda(object sender, MouseEventArgs e)
-        {
-            if (((KryptonTextBox)sender).Text == "") ((KryptonTextBox)sender).Text = "1";
-            int cantidad = int.Parse(((KryptonTextBox)sender).Text);
-            if (e.Delta > 0) cantidad++; else if (cantidad!=0)cantidad--;
-            ((KryptonTextBox)sender).Text = cantidad.ToString();
-        }
-
         //
         //PANEL DE RESERVAS
         //
@@ -170,6 +117,11 @@ namespace proyecto.menu
         {cambiar_p("AGREGAR ARTICULOS A VENTAS", p_venta);mt.limpieza.limpiar(p_venta, tabla);}
 
         private void checkInCheckOutToolStripMenuItem_Click(object sender, EventArgs e)
-        { checkin_out c = new checkin_out();c.Show(); this.Hide();}
+        { cambiar_p("CHECKIN Y CHECKOUT", p_checkin); }
+
+        private void agregar_mod_habitaciones_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,13 +10,13 @@ namespace proyecto.reserva
     public class paleta : KryptonPalette
     {
         public static paleta p = new paleta();
-        public static void set(KryptonForm f)
+        public static void set(dynamic f)
         {
             f.Palette = p;foreach (Control c in f.Controls)
             {
                 if (c is KryptonButton b) b.Palette = p;
                 if (c is KryptonTextBox t) t.Palette = p;
-                //                if (c is ) t.Palette = p;
+                if (c is KryptonPanel d) set(d);
             }
             //return f;
         }

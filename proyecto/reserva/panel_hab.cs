@@ -46,7 +46,7 @@ namespace proyecto.reserva
             this.l_room.StateCommon.ShortText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.l_room.TabIndex = 5;
             // 
-            // l_adultos
+            // l_p
             // 
             this.l_p.Location = new System.Drawing.Point(14, 76);
             this.l_p.Name = "l_adultos";
@@ -55,7 +55,7 @@ namespace proyecto.reserva
             this.l_p.TabIndex = 5;
             this.l_p.Values.Text = "Personas";
             // 
-            // b_adult_minus
+            // b_p_minus
             // 
             this.b_p_minus.CornerRoundingRadius = -1F;
             this.b_p_minus.Location = new System.Drawing.Point(109, 74);
@@ -64,7 +64,7 @@ namespace proyecto.reserva
             this.b_p_minus.TabIndex = 2;
             this.b_p_minus.Values.Text = "-";
             // 
-            // t_adult
+            // t_p
             // 
             this.t_p.Location = new System.Drawing.Point(161, 67);
             this.t_p.Name = "t_adult";
@@ -72,7 +72,7 @@ namespace proyecto.reserva
             this.t_p.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom)
             | Krypton.Toolkit.PaletteDrawBorders.Left)
             | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.t_p.TabIndex = 1;
+            this.t_p.TabIndex = 1; t_p.Text = "1";//AL MENOS UNA PERSONA TIENE QUE RESERVAR
             // 
             // b_adult_plus
             // 

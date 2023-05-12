@@ -62,31 +62,17 @@ namespace proyecto.menu
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.p_menu = new Krypton.Toolkit.KryptonPanel();
-            this.p_clientes = new Krypton.Toolkit.KryptonPanel();
-            this.l_c_detalles = new System.Windows.Forms.Label();
-            this.b_cc_guardar = new Krypton.Toolkit.KryptonButton();
-            this.b_cc_agregar = new Krypton.Toolkit.KryptonButton();
-            this.b_cc_editar = new Krypton.Toolkit.KryptonButton();
-            this.l_c_id = new System.Windows.Forms.Label();
-            this.b_cc_buscar = new Krypton.Toolkit.KryptonButton();
-            this.l_c_id_b = new System.Windows.Forms.Label();
-            this.t_cc_cid_b = new Krypton.Toolkit.KryptonTextBox();
-            this.l_c_phone = new System.Windows.Forms.Label();
-            this.t_cc_curp = new Krypton.Toolkit.KryptonTextBox();
-            this.l_c_mail = new System.Windows.Forms.Label();
-            this.t_cc_phone = new Krypton.Toolkit.KryptonTextBox();
-            this.l_c_curp = new System.Windows.Forms.Label();
-            this.l_c_name = new System.Windows.Forms.Label();
-            this.t_cc_name = new Krypton.Toolkit.KryptonTextBox();
-            this.t_cc_id = new Krypton.Toolkit.KryptonTextBox();
             this.t_cc_mail = new Krypton.Toolkit.KryptonTextBox();
+            this.t_cc_id = new Krypton.Toolkit.KryptonTextBox();
+            this.t_cc_name = new Krypton.Toolkit.KryptonTextBox();
+            this.t_cc_phone = new Krypton.Toolkit.KryptonTextBox();
+            this.t_cc_curp = new Krypton.Toolkit.KryptonTextBox();
+            this.t_cc_cid_b = new Krypton.Toolkit.KryptonTextBox();
             this.menu_st.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p_venta)).BeginInit();
             this.p_venta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_menu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_clientes)).BeginInit();
-            this.p_clientes.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu_st
@@ -169,21 +155,22 @@ namespace proyecto.menu
             this.agregarModificarToolStripMenuItem,
             this.reporteDeProductosToolStripMenuItem});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.productosToolStripMenuItem.Text = "Habitaciones";
             // 
             // agregarModificarToolStripMenuItem
             // 
             this.agregarModificarToolStripMenuItem.Name = "agregarModificarToolStripMenuItem";
-            this.agregarModificarToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.agregarModificarToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.agregarModificarToolStripMenuItem.Text = "Agregar / Modificar";
+            this.agregarModificarToolStripMenuItem.Click += new System.EventHandler(this.agregar_mod_habitaciones_click);
             // 
             // reporteDeProductosToolStripMenuItem
             // 
             this.reporteDeProductosToolStripMenuItem.Name = "reporteDeProductosToolStripMenuItem";
             this.reporteDeProductosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.reporteDeProductosToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.reporteDeProductosToolStripMenuItem.Text = "Reporte de productos";
+            this.reporteDeProductosToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.reporteDeProductosToolStripMenuItem.Text = "Reporte de Habitaciones";
             this.reporteDeProductosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeProductosToolStripMenuItem_Click);
             // 
             // p_venta
@@ -375,233 +362,15 @@ namespace proyecto.menu
             this.p_menu.StateCommon.Color2 = System.Drawing.Color.LemonChiffon;
             this.p_menu.TabIndex = 2;
             // 
-            // p_clientes
-            // 
-            this.p_clientes.Controls.Add(this.l_c_detalles);
-            this.p_clientes.Controls.Add(this.b_cc_guardar);
-            this.p_clientes.Controls.Add(this.b_cc_agregar);
-            this.p_clientes.Controls.Add(this.b_cc_editar);
-            this.p_clientes.Controls.Add(this.l_c_id);
-            this.p_clientes.Controls.Add(this.b_cc_buscar);
-            this.p_clientes.Controls.Add(this.l_c_id_b);
-            this.p_clientes.Controls.Add(this.t_cc_cid_b);
-            this.p_clientes.Controls.Add(this.l_c_phone);
-            this.p_clientes.Controls.Add(this.t_cc_curp);
-            this.p_clientes.Controls.Add(this.l_c_mail);
-            this.p_clientes.Controls.Add(this.t_cc_phone);
-            this.p_clientes.Controls.Add(this.l_c_curp);
-            this.p_clientes.Controls.Add(this.l_c_name);
-            this.p_clientes.Controls.Add(this.t_cc_name);
-            this.p_clientes.Controls.Add(this.t_cc_id);
-            this.p_clientes.Controls.Add(this.t_cc_mail);
-            this.p_clientes.Location = new System.Drawing.Point(10, 70);
-            this.p_clientes.MaximumSize = new System.Drawing.Size(850, 450);
-            this.p_clientes.Name = "p_clientes";
-            this.p_clientes.Size = new System.Drawing.Size(850, 450);
-            this.p_clientes.TabIndex = 17;
-            this.p_clientes.Visible = false;
-            // 
-            // l_c_detalles
-            // 
-            this.l_c_detalles.AutoSize = true;
-            this.l_c_detalles.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.l_c_detalles.Location = new System.Drawing.Point(220, 84);
-            this.l_c_detalles.Name = "l_c_detalles";
-            this.l_c_detalles.Size = new System.Drawing.Size(314, 32);
-            this.l_c_detalles.TabIndex = 12;
-            this.l_c_detalles.Text = "DETALLES DEL CLIENTE";
-            // 
-            // b_cc_guardar
-            // 
-            this.b_cc_guardar.CornerRoundingRadius = -1F;
-            this.b_cc_guardar.Location = new System.Drawing.Point(551, 300);
-            this.b_cc_guardar.Name = "b_cc_guardar";
-            this.b_cc_guardar.Size = new System.Drawing.Size(105, 35);
-            this.b_cc_guardar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
-            this.b_cc_guardar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.b_cc_guardar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.b_cc_guardar.TabIndex = 10;
-            this.b_cc_guardar.Values.Text = "GUARDAR";
-            this.b_cc_guardar.Click += new System.EventHandler(this.b_cc_guardar_Click);
-            // 
-            // b_cc_agregar
-            // 
-            this.b_cc_agregar.CornerRoundingRadius = -1F;
-            this.b_cc_agregar.Location = new System.Drawing.Point(551, 188);
-            this.b_cc_agregar.Name = "b_cc_agregar";
-            this.b_cc_agregar.Size = new System.Drawing.Size(105, 32);
-            this.b_cc_agregar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
-            this.b_cc_agregar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.b_cc_agregar.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.b_cc_agregar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.b_cc_agregar.TabIndex = 9;
-            this.b_cc_agregar.Values.Text = "AGREGAR";
-            this.b_cc_agregar.Click += new System.EventHandler(this.b_cc_agregar_Click);
-            // 
-            // b_cc_editar
-            // 
-            this.b_cc_editar.CornerRoundingRadius = -1F;
-            this.b_cc_editar.Location = new System.Drawing.Point(551, 139);
-            this.b_cc_editar.Name = "b_cc_editar";
-            this.b_cc_editar.Size = new System.Drawing.Size(105, 35);
-            this.b_cc_editar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
-            this.b_cc_editar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.b_cc_editar.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.b_cc_editar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.b_cc_editar.TabIndex = 3;
-            this.b_cc_editar.Values.Text = "EDITAR";
-            this.b_cc_editar.Click += new System.EventHandler(this.b_cc_editar_Click);
-            // 
-            // l_c_id
-            // 
-            this.l_c_id.AutoSize = true;
-            this.l_c_id.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_c_id.Location = new System.Drawing.Point(405, 147);
-            this.l_c_id.Name = "l_c_id";
-            this.l_c_id.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_c_id.Size = new System.Drawing.Size(27, 19);
-            this.l_c_id.TabIndex = 7;
-            this.l_c_id.Text = "ID";
-            // 
-            // b_cc_buscar
-            // 
-            this.b_cc_buscar.CornerRoundingRadius = -1F;
-            this.b_cc_buscar.Location = new System.Drawing.Point(551, 20);
-            this.b_cc_buscar.Name = "b_cc_buscar";
-            this.b_cc_buscar.Size = new System.Drawing.Size(105, 35);
-            this.b_cc_buscar.StateCommon.Border.Color1 = System.Drawing.Color.Blue;
-            this.b_cc_buscar.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.b_cc_buscar.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.b_cc_buscar.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.b_cc_buscar.TabIndex = 2;
-            this.b_cc_buscar.Values.Text = "BUSCAR";
-            this.b_cc_buscar.Click += new System.EventHandler(this.b_cc_buscar_Click);
-            // 
-            // l_c_id_b
-            // 
-            this.l_c_id_b.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_c_id_b.Location = new System.Drawing.Point(-2, 25);
-            this.l_c_id_b.Name = "l_c_id_b";
-            this.l_c_id_b.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_c_id_b.Size = new System.Drawing.Size(263, 19);
-            this.l_c_id_b.TabIndex = 6;
-            this.l_c_id_b.Text = "ID (Telefono/Curp)";
-            // 
-            // t_cc_cid_b
-            // 
-            this.t_cc_cid_b.Location = new System.Drawing.Point(267, 20);
-            this.t_cc_cid_b.MaxLength = 18;
-            this.t_cc_cid_b.Name = "t_cc_cid_b";
-            this.t_cc_cid_b.Size = new System.Drawing.Size(267, 23);
-            this.t_cc_cid_b.TabIndex = 1;
-            this.t_cc_cid_b.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enter_buscar);
-            // 
-            // l_c_phone
-            // 
-            this.l_c_phone.AutoSize = true;
-            this.l_c_phone.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_c_phone.Location = new System.Drawing.Point(89, 230);
-            this.l_c_phone.Name = "l_c_phone";
-            this.l_c_phone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_c_phone.Size = new System.Drawing.Size(81, 19);
-            this.l_c_phone.TabIndex = 9;
-            this.l_c_phone.Text = "Telefono";
-            // 
-            // t_cc_curp
-            // 
-            this.t_cc_curp.Location = new System.Drawing.Point(176, 300);
-            this.t_cc_curp.Name = "t_cc_curp";
-            this.t_cc_curp.ReadOnly = true;
-            this.t_cc_curp.Size = new System.Drawing.Size(358, 23);
-            this.t_cc_curp.TabIndex = 8;
-            this.t_cc_curp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
-            // 
-            // l_c_mail
-            // 
-            this.l_c_mail.AutoSize = true;
-            this.l_c_mail.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_c_mail.Location = new System.Drawing.Point(107, 266);
-            this.l_c_mail.Name = "l_c_mail";
-            this.l_c_mail.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_c_mail.Size = new System.Drawing.Size(63, 19);
-            this.l_c_mail.TabIndex = 9;
-            this.l_c_mail.Text = "Correo";
-            // 
-            // t_cc_phone
-            // 
-            this.t_cc_phone.Location = new System.Drawing.Point(176, 226);
-            this.t_cc_phone.Name = "t_cc_phone";
-            this.t_cc_phone.ReadOnly = true;
-            this.t_cc_phone.Size = new System.Drawing.Size(358, 23);
-            this.t_cc_phone.TabIndex = 6;
-            this.t_cc_phone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
-            // 
-            // l_c_curp
-            // 
-            this.l_c_curp.AutoSize = true;
-            this.l_c_curp.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_c_curp.Location = new System.Drawing.Point(125, 304);
-            this.l_c_curp.Name = "l_c_curp";
-            this.l_c_curp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_c_curp.Size = new System.Drawing.Size(45, 19);
-            this.l_c_curp.TabIndex = 9;
-            this.l_c_curp.Text = "Curp";
-            // 
-            // l_c_name
-            // 
-            this.l_c_name.AutoSize = true;
-            this.l_c_name.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_c_name.Location = new System.Drawing.Point(107, 192);
-            this.l_c_name.Name = "l_c_name";
-            this.l_c_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.l_c_name.Size = new System.Drawing.Size(63, 19);
-            this.l_c_name.TabIndex = 9;
-            this.l_c_name.Text = "Nombre";
-            // 
-            // t_cc_name
-            // 
-            this.t_cc_name.Location = new System.Drawing.Point(176, 185);
-            this.t_cc_name.Name = "t_cc_name";
-            this.t_cc_name.ReadOnly = true;
-            this.t_cc_name.Size = new System.Drawing.Size(358, 23);
-            this.t_cc_name.TabIndex = 5;
-            this.t_cc_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
-            // 
-            // t_cc_id
-            // 
-            this.t_cc_id.Location = new System.Drawing.Point(445, 139);
-            this.t_cc_id.Name = "t_cc_id";
-            this.t_cc_id.ReadOnly = true;
-            this.t_cc_id.Size = new System.Drawing.Size(89, 23);
-            this.t_cc_id.TabIndex = 4;
-            // 
-            // t_cc_mail
-            // 
-            this.t_cc_mail.Location = new System.Drawing.Point(176, 262);
-            this.t_cc_mail.Name = "t_cc_mail";
-            this.t_cc_mail.ReadOnly = true;
-            this.t_cc_mail.Size = new System.Drawing.Size(358, 23);
-            this.t_cc_mail.TabIndex = 7;
-            this.t_cc_mail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.detect_enter);
-            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(864, 561);
-            this.Controls.Add(this.p_menu);
             this.Controls.Add(this.p_venta);
+            this.Controls.Add(this.p_menu);
             this.Controls.Add(this.menu_st);
-            this.Controls.Add(this.p_clientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu_st;
             this.Name = "menu";
@@ -616,9 +385,6 @@ namespace proyecto.menu
             this.p_venta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_menu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.p_clientes)).EndInit();
-            this.p_clientes.ResumeLayout(false);
-            this.p_clientes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -655,25 +421,13 @@ namespace proyecto.menu
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Importe;
-        public Krypton.Toolkit.KryptonPanel p_clientes;
-        private Label l_c_detalles;
-        private Krypton.Toolkit.KryptonButton b_cc_editar;
-        private Label l_c_id;
-        private Krypton.Toolkit.KryptonButton b_cc_buscar;
-        private Label l_c_id_b;
-        private Krypton.Toolkit.KryptonTextBox t_cc_cid_b;
-        private Label l_c_phone;
-        private Krypton.Toolkit.KryptonTextBox t_cc_curp;
-        private Label l_c_mail;
-        private Krypton.Toolkit.KryptonTextBox t_cc_phone;
-        private Label l_c_curp;
-        private Label l_c_name;
-        private Krypton.Toolkit.KryptonTextBox t_cc_name;
-        private Krypton.Toolkit.KryptonTextBox t_cc_id;
-        private Krypton.Toolkit.KryptonTextBox t_cc_mail;
-        private Krypton.Toolkit.KryptonButton b_cc_guardar;
-        private Krypton.Toolkit.KryptonButton b_cc_agregar;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private Krypton.Toolkit.KryptonButton b_buscar;
+        private Krypton.Toolkit.KryptonTextBox t_cc_mail;
+        private Krypton.Toolkit.KryptonTextBox t_cc_id;
+        private Krypton.Toolkit.KryptonTextBox t_cc_name;
+        private Krypton.Toolkit.KryptonTextBox t_cc_phone;
+        private Krypton.Toolkit.KryptonTextBox t_cc_curp;
+        private Krypton.Toolkit.KryptonTextBox t_cc_cid_b;
     }
 }

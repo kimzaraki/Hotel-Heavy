@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+//TA JOYA, NO TOCAR YA
 using _rest = proyecto.procedimientos.rest;
 namespace proyecto.reports
 {
@@ -375,7 +375,7 @@ namespace proyecto.reports
             {
                 //MessageBox.Show("esta jalando entonces");
                 p_rooms p = c.Parent as p_rooms;
-                if (p.selected) { MessageBox.Show("AGREGANDO"); agregar(p); }
+                if (p.selected) agregar(p);
                 else {borrar(p.room); }
             }
         }
@@ -413,10 +413,14 @@ namespace proyecto.reports
             this.cliente = clientes.buscar(t_rs_id.Text);
             if (cliente == null) {
                 //MessageBox.Show("NO SE ENCONTRO NADA");
-                if (preguntar("¿Usuario no encontrado\nDesea crear un nuevo usuario?", "Usuario no encontrado")) { crear_usuario(); return; } }
-            t_rs_nombre.Text = cliente[1];
-            t_rs_telefono.Text = cliente[2];
-            t_rs_correo.Text = cliente[4];
+                if (preguntar("¿Usuario no encontrado\nDesea crear un nuevo usuario?", "Usuario no encontrado")) { crear_usuario(); return; } else { t_rs_id.Focus(); t_rs_id.SelectAll(); }
+            }
+            else
+            {
+                t_rs_nombre.Text = cliente[1];
+                t_rs_telefono.Text = cliente[2];
+                t_rs_correo.Text = cliente[4];
+            }
             mouse(Cursors.Default);
         }
         void mouse(Cursor c) { Cursor.Current = c; }
@@ -430,13 +434,13 @@ namespace proyecto.reports
             mouse(Cursors.WaitCursor);
             var lista = new List<habitacion>();
             string ci = dtp_rs_checkin.Value.ToString("ddMMyyyy"), co = dtp_rs_checkout.Value.ToString("ddMMyyyy");
-            MessageBox.Show($"Check IN: {ci}\nCheck OUT: {co}");
+            //MessageBox.Show($"Check IN: {ci}\nCheck OUT: {co}");
             if (proyecto.formsu.lista_habitaciones.load(ci, co)) { lista = proyecto.formsu.lista_habitaciones.lista; }
             else { MessageBox.Show("No se puede conectar al servidor"); return; }limpiar();
-            MessageBox.Show("AA");
+            //MessageBox.Show("AA");
             foreach (var item in lista)
             {
-                MessageBox.Show(item.piso);
+                //MessageBox.Show(item.piso);
                 // MessageBox.Show(item.nombre);
                 var owo = new p_rooms();
                 owo.l_info.Text = $"{item.nombre}\r\n\r\nPiso #{item.piso} Apt. #{item.apt}\r\n${item.precio}";
@@ -469,7 +473,7 @@ namespace proyecto.reports
                 }
             }MessageBox.Show(_url);
             string timestamp = _rest.consume($"http://localhost/reservar/mult/{id}_{cliente[0]}_{_url}_{formsu.usuario.id}");
-            
+            MessageBox.Show($"Cliente: {cliente[0]}\nUsuario: {formsu.usuario.id}");
             Cursor.Current = Cursors.Default;
             cadena += $"\nTotal: ${total}"; MessageBox.Show(cadena);
             if (preguntar($"{cadena}\n\nDesea generar PDF?", "Reservacion creada satisfactoriamente")) 
@@ -478,13 +482,13 @@ namespace proyecto.reports
 
         public static void save(string timestamp)
         {
-            SaveFileDialog save = new SaveFileDialog();//guiardar el archivo
-            save.DefaultExt = "pdf";
-            save.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss")); //especificicamos el tipo de archivo y nombre
+            SaveFileDialog _save = new SaveFileDialog();//guiardar el archivo
+            _save.DefaultExt = "pdf";
+            _save.FileName = $"R_{timestamp}.pdf"; //especificicamos el tipo de archivo y nombre
             //CORREGIR ESTO
             string url = ($"http://localhost/reservaciones/web/{timestamp}");
-            if (save.ShowDialog() == DialogResult.OK)
-            { var generar = new topdf(url, save.FileName); }
+            if (_save.ShowDialog() == DialogResult.OK)
+            { MessageBox.Show("guardando coso rancio"); ; var generar = new topdf(url, _save.FileName); }
         }
 
         void generar_pdf()
