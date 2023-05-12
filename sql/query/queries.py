@@ -67,14 +67,15 @@ def estado():
 
 
 #EDITAR DATOS DE UN CLIENTE
-@app.route('/clientes/edit/i=<id>_n=<name>_m=<mail>_p=<phone>_c=<curp>')
-def editar(id, name, mail, phone, curp):return clientes.editar(id, name, mail, phone, curp)
+@app.route('/clientes/edit/i=<id>_n=<name>_m=<mail>_p=<phone>_c=<curp>_pw=<pwd>')
+def editar(id, name, mail, phone, curp, pwd):return clientes.editar(id, name, mail, phone, curp, pwd)
 
 #CREAR CLIENTE CON ID
-@app.route('/clientes/create/i=<id>_n=<name>_m=<mail>_p=<phone>_c=<curp>')
-def crear_cliente(id, name, mail, phone, curp):return clientes.crear(id, name, mail, phone, curp)
+@app.route('/clientes/create/i=<id>_n=<name>_m=<mail>_p=<phone>_c=<curp>_pw=<pwd>')
+def crear_cliente(id, name, mail, phone, curp, pwd):return clientes.crear(id, name, mail, phone, curp, pwd)
 
-
+@app.route('/clientes/login/<u>_<p>')
+def login_c(u,p):return clientes.login(u,p)
 
 #BUSCAR UN PRODUCTO EN BASE A LOS PARAMETROS DADOS
 #primer parametro = minimo
@@ -122,4 +123,4 @@ def ventas_web(id, empleado, docname):return ventasweb.renderear(id, empleado, d
 
 
 #Corre la APP
-app.run(host='0.0.0.0', debug=True, port=80)
+app.run(host='0.0.0.0', debug=True, port=8000)

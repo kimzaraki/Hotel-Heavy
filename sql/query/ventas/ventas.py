@@ -3,7 +3,12 @@ from flask import jsonify
 from sql.query import empleado as q_emp
 
 def ventas(id):
-    query = f"select p.id_order, p2.name, c.id, c.name, c.telefono, c.correo, p.cantidad, p.fecha, p2.precio from pedidos p right join clientes c on p.id_cliente = c.id right join productos p2 on p.id_prod = p2.id where p.id_order  = {id}"
+    query = f"select p.ID_reservacion , prod.name , c.id, c.name, c.telefono, c.correo, p.Noches , p.fecha, prod.precio \
+from vw_reservaciones p \
+left join clientes c on p.ID_reservacion  = c.id \
+left join habitaciones p2 on p.ID_habitacion  = p2.id \
+left join productos prod on prod.id = p2.id_prod \
+where p.Fecha  = {id}"
     fetched = q.query_db(query)
     json = {"encontrado" : ""}
     if fetched==[]: 

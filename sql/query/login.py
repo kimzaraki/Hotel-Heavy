@@ -1,8 +1,8 @@
 from sql.controllers import generic_query as q
 from flask import jsonify
-
+#NO TOCAR, TODO ESTA GENIAL
 def q_login(user, password):
-    query = f'SELECT * FROM empleados where usuario = "{user}"'
+    query = f"SELECT * FROM empleados where usuario = '{user}'"
     # print(query)
     fetched = q.query_db(query)
     # print(fetched)

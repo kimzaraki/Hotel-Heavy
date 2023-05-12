@@ -50,7 +50,6 @@ def buscar(ts):
             "precio" : i[12],
             "cliente" : i[1],
             "empleado" : i[8],
-            "cliente" : i[1],
             'checkin' : checkin,
             'checkout' : checkout,
             "timestamp" : i[2],
