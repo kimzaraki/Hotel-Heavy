@@ -13,3 +13,11 @@ import pyodbc
 #                           "PWD=minmin789;"
 #                           "charset=utf8mb4")
 #     return conn
+def get_db_connection():
+    conn = pyodbc.connect("Driver={MySQL ODBC 8.0 Unicode Driver};"
+                          #PONGA LA SUYA PRRO";"
+                          "Database=heavy;"
+                          "UID=root;"
+                          "PWD=minmin789;"
+                          "charset=utf8mb4")
+    return conn

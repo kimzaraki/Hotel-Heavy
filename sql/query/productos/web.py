@@ -4,81 +4,64 @@ from flask import jsonify
 from sql.query import archivo as file
 from sql.query import empleado as q_emp
 from procesos import date as fecha
-def renderear(pars, empleado):
+def renderear(pars, empleado, r):
     lista = pars.split('+')
     # return (lista)
     params = []
+    filtro = ""
     if lista[0] == "$":params.append(False)
-    else: params.append(True)
+    else: 
+        filtro += f"Precio min: ${lista[0]}, "
+        params.append(True)
     if lista[1] == "$": params.append(False) 
-    else: params.append(True)
+    else: 
+        filtro += f"Precio max: ${lista[1]}, "
+        params.append(True)
     if lista[2] == "$": params.append(False)
-    else: params.append(True)
-    if lista[3] == "$": params.append(False)
-    else: params.append(True)
-    if lista[4] == "$": params.append(False)
-    else: params.append(True)
-    if lista[5] == "$": params.append(False)
-    else: params.append(True)
-    if lista[6] == "$": params.append(False)
     else: params.append(True)
     empleado = q_emp.get(empleado)
     # print(empleado)
-    query = "select p.id, p.name, p.descripcion, p.precio, e.estado, c.categoria from productos p left join estados e on p.estado = e.id left join categorias c on p.categoria = c.id"
+    query = "select * from productos"
+    f2 = q.query_db("select * from estados");e=[]
+    for i in f2: e.append(i)
     min = "0";max = lista[1]
-    if lista[0] != "$": 
-        min = lista[0]
+    if params[0]: min = lista[0]
     add = False; maxear = False
-    if max == "$": maxear = True
+    if params[1]: maxear = True
+    if params[2]: filtro += f"Estado: {e[int(lista[2])-1][1]}, "
     fetched = q.query_db(query)
     #json = crear_json_prods(fetched)
     htmlfile="";rows=""
     # return str(json)
+    r = r=="1"
+    # return str(r)
+    fetched.sort(key=sort_precio, reverse=r)
     for i in fetched:
         # print((i))
-        add = False
-        if (maxear): max = i[3]
-        if not params[3] and not params[4] and not params[5] and not params[6]: 
-            if comparar(i[3], min, max): 
-                add = True
-        else:
-            if params[3]: 
-                if i[5] == "Habitaciones" * comparar(i[3], min, max): add = True
-            if params[4]: 
-                print(i[5])
-                if i[5] == "Servicios" * comparar(i[3], min, max): add = True
-            if params[5]: 
-                if i[5] == "Alimentos" * comparar(i[3], min, max): add = True
-            if params[6]: 
-                if i[5] == "Bebidas"* comparar(i[3], min, max): add = True
-            # if 
-        # print(add)
-        # print(str(add))
-        if add: 
-            rows = add_table(rows, i)
+        if params[0] and int(i[3]) < int(lista[0]):continue
+        if params[1] and int(i[3]) > int(lista[1]):continue
+        if params[2] and int(i[4]) != int(lista[2]):continue
+        rows += add_table(i, e[int(i[4])-1])
     # print(rows)
     
     # for i in fetched:
     #     params[]
-    htmlfile = file.read('webon/reporte_p.html')
-    htmlfile = htmlfile.replace("@FILAS", rows)
-    htmlfile = htmlfile.replace("@NOMBREEMP", empleado)
-    htmlfile = htmlfile.replace("@FECHA", fecha.hoy())
+    if filtro == "": filtro = "Todos, "
+    if not r: filtro += "Orden ascendente, "
+    else: filtro += "Orden descendiente, "
+    filtro = filtro[0:-2]
+    htmlfile = file.read('webon/reporte_p.html').replace("@FILAS", rows)\
+    .replace("@NOMBREEMP", empleado).replace("@FECHA", fecha.hoy()).replace("@FILTRO", filtro)
     
     return htmlfile
 
 #Agregar tabla web
-def add_table(tabla, i):
-    tabla += "<tr>"
-    tabla += "<td>" + f"{i[1]}: {i[2]}" + "</td>"
-    tabla += "<td>" + f"{i[5]}"+ "</td>"
-    tabla += "<td>" + f"${i[3]}" + "</td>"
-    tabla += "<td>" + f"{i[4]}" + "</td>"
-    tabla += "</tr>"
+def add_table(i, e):
+    return f"<tr><td>{i[1]}: {i[2]}</td><td>${i[3]}</td><td>{e[1]}</td></tr>"
     # print(tabla)
     # print (tabla + "QUE TONTA")
-    return tabla
-
+def sort_precio(a): return int(a[3])
+def sort_nombre(a): return a[1]
 
 #COMPARACION ENTRE VALORES FILTRADOS
 def comparar(val, min, max):

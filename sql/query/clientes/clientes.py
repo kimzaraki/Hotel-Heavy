@@ -46,16 +46,8 @@ def login(u, p):
     if "@" in u: crit="correo"
     else: crit="telefono"
     query = f'SELECT * FROM clientes where {crit} = "{u}"'
-    print(query)
-    # print(query)
-    fetched = q.query_db(query)
+    fetched = q.query_db(query);json = {}
     # print(fetched)
-    json = {
-        "id" : "",
-        "user" : "",
-        "nombre" : "",
-        "sesion" : ""
-    }
     pwd = fetched[0][5]
     if fetched != []:
         print("trae cosillas")

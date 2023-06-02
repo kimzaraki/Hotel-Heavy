@@ -43,4 +43,6 @@ def hoy():
     #     minutos += " PM"; hr = int(hr)-12
     # else: minutos += " AM"
     # print(now.month)
+    # hora = str(now.hour)
+    # if len(hora) == 1:hora = f"0{hora}"
     return f"{now.day} de {get_mon(str(now.month))} del {now.year} / {AMPM(now.hour, now.minute)}"

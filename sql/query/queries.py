@@ -1,3 +1,5 @@
+import requests as r
+
 from sql.controllers import generic_query as q
 from flask import jsonify
 
@@ -18,6 +20,7 @@ from sql.query.productos import productos
 
 from sql.query import empleado as empleados
 from sql.query.reservaciones import reservacion as reservas
+from sql.query.habitaciones import habitacion as room, web as habitacionesweb
 
 #WEB
 from sql.query.productos import web as productosweb
@@ -33,6 +36,19 @@ def login(user, password):return (l.q_login(user, password))
 @app.route("/fechasdisponibles/<checkin>_<checkout>")
 def fechas(checkin, checkout):return (reservacion.buscar_d(checkin, checkout))
 
+@app.route("/rooms/<id>")
+def buscar_cuarto(id): return room.buscar(id)
+# @app.route("/rooms/crear/<tipo>")
+# def buscar_cuarto(id): return room.buscar(id)
+@app.route("/rooms/tipos")
+def tipos_habitacion(): return room.tipos()
+@app.route("/rooms/estados")
+def estados_habitacion(): return room.estados()
+@app.route("/rooms/crear/p=<piso>_a=<apt>_t=<tipo>")
+def crear_habitacion(piso, apt, tipo): return room.crear(piso, apt, tipo)
+@app.route("/rooms/editar/p=<piso>_a=<apt>_e=<estado>")
+def editar_habitacion(piso, apt, estado): return room.editar(piso, apt, estado)
+# def buscar_cuarto(id): return q.execute("drop view vw_habitaciones_d")
 #NO HACE NADA LOL, SOLO UN EASTER EGG TONTO XD // XD
 # @app.route('/')
 # def root(): return '<button id="b" style="text-align: center; margin: 50px; '\
@@ -51,16 +67,14 @@ def buscarcliente(curp, phone):return clientes.buscar(curp, phone)
 #
 #OBSOLETO PROBABLEMENTE
 #
-@app.route('/estado.json')
+@app.route('/estados.json')
 def estado():
     query = f"select * from estados"
     json = {};a=0
+    json["estados"] = []
     fetched = q.query_db(query)
     for i in fetched:
-        json[f"e{a}"] = {
-            "id" :  i[0],
-            "estado" : i[1]
-        };a+=1
+        json["estados"].append(i[1])
     # return str(fetched)
     return jsonify(json)
 
@@ -89,10 +103,12 @@ def productos_f(pars):return productos.filtrar(pars)
 def productos_json():return productos.productos()
 
 #CREA UN REPORTE HTML DEL LISTADO DE PRODUCTOS FILTRADOS
-@app.route('/productos/web/<pars>_<empleado>')
-def productos_web(pars, empleado):
-    print("a")
-    return productosweb.renderear(pars, empleado)
+@app.route('/productos/web/<pars>_<empleado>_<r>')
+def productos_web(pars, empleado,r ):return productosweb.renderear(pars, empleado, r)
+
+#CREA UN REPORTE HTML DEL LISTADO DE HABITACIONES
+@app.route('/habitaciones/web/<pars>_<empleado>_<s>')
+def habitaciones_web(pars, empleado, s):return habitacionesweb.renderear(pars, empleado, s)
 
 #EN PRUEBAS
 @app.route('/reservar/<id>+<idc>+<ad>+<kid>+<checkin>+<checkout>+<id_h>')
@@ -120,7 +136,13 @@ def ventas_json(id):return ventas.ventas(id)
 #GENERA UN REPORTE HTML DE UNA VENTA
 @app.route('/ventas/web/<id>_<empleado>_<docname>')
 def ventas_web(id, empleado, docname):return ventasweb.renderear(id, empleado, docname)
+@app.route('/web/login/u=<u>&p=<p>')
+def login_web(u, p):return l.q_login_web(u,p)
 
-
+@app.route('/post/<dest>{_}<msg>')
+def posting(dest, msg):
+    a = r.post('http://localhost/kim/recuperar.php', data={"mensaje":msg.replace('\e', ' ').replace('Ã±', 'ñ'),"destino":dest})
+    
+    return str(a.status_code)
 #Corre la APP
 app.run(host='0.0.0.0', debug=True, port=8000)
